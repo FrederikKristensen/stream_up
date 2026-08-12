@@ -18,7 +18,6 @@ function buildAuthURL(): string {
 
 async function twitchAPI(): Promise<string> {
   const authURL = buildAuthURL();
-
   const redirectURL = await browser.identity.launchWebAuthFlow({
     url: authURL,
     interactive: true,
