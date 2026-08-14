@@ -1,11 +1,14 @@
 import browser from 'webextension-polyfill';
 
+// Our application id for twitch
 const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
 
+// Here we get a redirection link for our web extension that is made by chrome
 function getTwitchRedirectURL(): string {
   return browser.identity.getRedirectURL();
 }
 
+// Authentication url link
 function buildAuthURL(): string {
   const params = new URLSearchParams({
     client_id: Twitch_Client_ID,
@@ -16,7 +19,7 @@ function buildAuthURL(): string {
   return `https://id.twitch.tv/oauth2/authorize?${params.toString()}`;
 }
 
-async function twitchAPI(): Promise<string> {
+async function twitchLogin(): Promise<string> {
   const authURL = buildAuthURL();
   const redirectURL = await browser.identity.launchWebAuthFlow({
     url: authURL,
@@ -36,4 +39,4 @@ async function twitchAPI(): Promise<string> {
   return accessToken;
 }
 
-export default twitchAPI;
+export default twitchLogin;

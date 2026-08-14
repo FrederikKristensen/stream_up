@@ -1,18 +1,24 @@
+import twitchLogin from './api/twitch/twitchLogin';
 import './App.css';
 import NavBar from './components/NavBar';
 import StreamCards from './components/StreamCards';
-import twitchAPI from './api/twitchAPI';
+import browser from 'webextension-polyfill';
 
 function App() {
-  // useEffect(() => {
-  //   fetchData(URL).then((result) => setName(result.name));
-  // }, []);
+  // Storing in .storage.local
+  async function saveToken(accessToken: string): Promise<void> {
+    await browser.storage.local.set({ twitchAccessToken: accessToken });
+  }
 
+  async function getStoredToken(): Promise<string | undefined> {
+    const result = await browser.storage.local.get('twitchAccessToken');
+  }
+
+  // Twitch login handle
   const handlelogin = async () => {
-    console.log('btn clicked');
     try {
-      const token = await twitchAPI();
-      console.log('Token:', token);
+      const token = await twitchLogin();
+      await saveToken(token);
     } catch (err) {
       console.error('Failed:', err);
     }
