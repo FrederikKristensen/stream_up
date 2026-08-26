@@ -12,6 +12,7 @@ function App() {
 
   async function getStoredToken(): Promise<string | undefined> {
     const result = await browser.storage.local.get('twitchAccessToken');
+    return result.twitchAccessToken as string | undefined;
   }
 
   // Twitch login handle

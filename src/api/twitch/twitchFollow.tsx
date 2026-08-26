@@ -11,10 +11,18 @@ interface followedChannels {
   data: channel;
 }
 
-async function twitchFollow(accesstoken: string, user) {
-  return (
-    <div>twitchFollow</div>
-  )
-};
+async function getTwitchFollow(accessToken: string, userId: string): Promise<channel[]> {
+  const response = await fetch(`https://api.twitch.tv/helix/streams/followed?user_id=${userId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Client-Id': Twitch_Client_ID,
+    },
+  });
 
-export default twitchFollow;
+  if (!response.ok) {
+    throw new Error(`Twitch API error: ${response.status} ${response.statusText}`);
+  }
+
+  const result: followedChannels = await response.json();
+  return result.data;
+}
