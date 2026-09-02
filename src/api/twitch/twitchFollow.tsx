@@ -1,14 +1,16 @@
 const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
 
 interface channel {
-  channel_name: string;
-  channel_title: string;
-  channel_game: string;
-  channel_viewers: number;
+  user_login: string;
+  user_name: string;
+  title: string;
+  game_name: string;
+  viewer_count: number;
+  thumbnail_url: string;
 }
 
 interface followedChannels {
-  data: channel;
+  data: channel[];
 }
 
 async function getTwitchFollow(accessToken: string, userId: string): Promise<channel[]> {
@@ -26,3 +28,5 @@ async function getTwitchFollow(accessToken: string, userId: string): Promise<cha
   const result: followedChannels = await response.json();
   return result.data;
 }
+
+export default getTwitchFollow;

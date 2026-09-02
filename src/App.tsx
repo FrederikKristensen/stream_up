@@ -1,4 +1,5 @@
 import twitchLogin from './api/twitch/twitchLogin';
+import getUsersId from './api/twitch/twitchUser';
 import './App.css';
 import NavBar from './components/NavBar';
 import StreamCards from './components/StreamCards';
@@ -20,6 +21,12 @@ function App() {
     try {
       const token = await twitchLogin();
       await saveToken(token);
+
+      const storedToken = await getStoredToken();
+      console.log('Stored token: ', storedToken); // to check the token storage works
+
+      const user = await getUsersId(token);
+      console.log('User is: ', user); // to check if get user works
     } catch (err) {
       console.error('Failed:', err);
     }
