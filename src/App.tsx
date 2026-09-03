@@ -1,3 +1,4 @@
+import getTwitchFollow from './api/twitch/twitchFollow';
 import twitchLogin from './api/twitch/twitchLogin';
 import getUsersId from './api/twitch/twitchUser';
 import './App.css';
@@ -27,6 +28,9 @@ function App() {
 
       const user = await getUsersId(token);
       console.log('User is: ', user); // to check if get user works
+
+      const followed = await getTwitchFollow(token, user.id);
+      console.log('Followed streams: ', followed);
     } catch (err) {
       console.error('Failed:', err);
     }
