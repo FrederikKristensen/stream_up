@@ -1,6 +1,6 @@
 const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
 
-interface channel {
+export interface channel {
   user_login: string;
   user_name: string;
   title: string;

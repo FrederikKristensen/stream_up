@@ -3,7 +3,6 @@ import twitchLogin from './api/twitch/twitchLogin';
 import getUsersId from './api/twitch/twitchUser';
 import './App.css';
 import NavBar from './components/NavBar';
-import StreamCards from './components/StreamCards';
 import browser from 'webextension-polyfill';
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
   return (
     <main className="w-95 h-80">
       <NavBar />
-      <StreamCards />
       <div className="absolute bottom-0">
         <button onClick={handlelogin} className="text-white">
           Login
