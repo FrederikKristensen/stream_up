@@ -1,6 +1,6 @@
 const NavBar = () => {
   return (
-    <div>
+    <div className="bg-gray-400">
       <p>Settings icon</p>
     </div>
   );

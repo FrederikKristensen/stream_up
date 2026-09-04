@@ -37,11 +37,15 @@ function App() {
   };
 
   return (
-    <>
+    <main className="w-95 h-80">
       <NavBar />
       <StreamCards />
-      <button onClick={handlelogin}>Login</button>
-    </>
+      <div className="absolute bottom-0">
+        <button onClick={handlelogin} className="text-white">
+          Login
+        </button>
+      </div>
+    </main>
   );
 }
 

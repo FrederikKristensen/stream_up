@@ -1,5 +1,5 @@
 @import "tailwindcss";
 
 :root {
-  @apply bg-cyan-500;
+  @apply bg-zinc-700;
 }
