@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import getTwitchFollow from './api/twitch/twitchFollow';
 import twitchLogin from './api/twitch/twitchLogin';
 import getUsersId from './api/twitch/twitchUser';
 import './App.css';
 import NavBar from './components/NavBar';
 import browser from 'webextension-polyfill';
+import { type channel } from './components/StreamCard';
+import StreamCards from './components/StreamCards';
 
 function App() {
-  // Storing in .storage.local
+  const [streams, setStreams] = useState<channel[]>([]);
+
+  // Storing token in .storage.local
   async function saveToken(accessToken: string): Promise<void> {
     await browser.storage.local.set({ twitchAccessToken: accessToken });
   }
@@ -29,7 +34,7 @@ function App() {
       console.log('User is: ', user); // to check if get user works
 
       const followed = await getTwitchFollow(token, user.id);
-      console.log('Followed streams: ', followed);
+      setStreams(followed);
     } catch (err) {
       console.error('Failed:', err);
     }
@@ -38,6 +43,7 @@ function App() {
   return (
     <main className="w-95 h-80">
       <NavBar />
+      <StreamCards streams={streams} />
       <div className="absolute bottom-0">
         <button onClick={handlelogin} className="text-white">
           Login

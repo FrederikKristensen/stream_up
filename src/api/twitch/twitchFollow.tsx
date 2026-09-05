@@ -1,14 +1,6 @@
+import type { channel } from '../../components/StreamCard';
+
 const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
-
-export interface channel {
-  user_login: string;
-  user_name: string;
-  title: string;
-  game_name: string;
-  viewer_count: number;
-  thumbnail_url: string;
-}
-
 interface followedChannels {
   data: channel[];
 }

@@ -1,18 +1,15 @@
-import type { channel } from '../api/twitch/twitchFollow';
+import StreamCard, { type channel } from './StreamCard';
 
-interface StreamCardProps {
-  stream: channel;
+interface StreamcardsProps {
+  streams: channel[];
 }
 
-const StreamCards = ({ stream }: StreamCardProps) => {
+const StreamCards = ({ streams }: StreamcardsProps) => {
   return (
     <div>
-      <p>{stream.user_name}</p>
-      <p>Thumbnail</p>
-      <h2>Name</h2>
-      <h3>Title</h3>
-      <p>Viewer count</p>
-      <p>Link</p>
+      {streams.map((channel) => (
+        <StreamCard key={channel.user_name} stream={channel} />
+      ))}
     </div>
   );
 };
