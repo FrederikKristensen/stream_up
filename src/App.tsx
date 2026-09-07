@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import getTwitchFollow from './api/twitch/twitchFollow';
 import twitchLogin from './api/twitch/twitchLogin';
 import getUsersId from './api/twitch/twitchUser';
@@ -16,25 +16,36 @@ function App() {
     await browser.storage.local.set({ twitchAccessToken: accessToken });
   }
 
+  // Gets the stored token of the user
   async function getStoredToken(): Promise<string | undefined> {
     const result = await browser.storage.local.get('twitchAccessToken');
     return result.twitchAccessToken as string | undefined;
   }
+
+  // Takes token and updates streams list
+  const loadStreams = async (token: string) => {
+    const user = await getUsersId(token);
+    const followed = await getTwitchFollow(token, user.id);
+    setStreams(followed);
+  };
+
+  // Runs loadStreams if we have a stored token when we open
+  useEffect(() => {
+    const init = async () => {
+      const storedToken = await getStoredToken();
+      if (storedToken) {
+        await loadStreams(storedToken);
+      }
+    };
+    init();
+  }, []);
 
   // Twitch login handle
   const handlelogin = async () => {
     try {
       const token = await twitchLogin();
       await saveToken(token);
-
-      const storedToken = await getStoredToken();
-      console.log('Stored token: ', storedToken); // to check the token storage works
-
-      const user = await getUsersId(token);
-      console.log('User is: ', user); // to check if get user works
-
-      const followed = await getTwitchFollow(token, user.id);
-      setStreams(followed);
+      await loadStreams(token);
     } catch (err) {
       console.error('Failed:', err);
     }
