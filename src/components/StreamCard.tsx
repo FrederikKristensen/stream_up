@@ -13,7 +13,7 @@ interface StreamCardProps {
 }
 
 const StreamCard = ({ stream }: StreamCardProps) => {
-  const thumbnailLink = stream.thumbnail_url.replace('{width}', '200').replace('{height}', '180');
+  const thumbnailLink = stream.thumbnail_url.replace('{width}', '320').replace('{height}', '180');
 
   return (
     <a
@@ -21,8 +21,14 @@ const StreamCard = ({ stream }: StreamCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="m-3 p-2 bg-zinc-700 rounded-xl">
-        <img src={thumbnailLink} alt="Thumbnail of the stream" />
+      <div className="mx-3 my-2 p-2 bg-zinc-700 rounded-xl overflow-hidden">
+        <div className="relative">
+          <img
+            src={thumbnailLink}
+            alt={`Thumbnail of ${stream.user_name}'s stream`}
+            className="w-full h-30 object-cover"
+          />
+        </div>
         <h1 className="truncate text-gray-50">{stream.title}</h1>
         <h2 className="text-gray-200">
           {stream.user_name} - {stream.game_name}

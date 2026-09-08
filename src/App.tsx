@@ -52,9 +52,13 @@ function App() {
   };
 
   return (
-    <main className="w-95 h-80">
-      <NavBar TwitchHandle={handleTwitchLogin} />
-      <StreamCards streams={streams} />
+    <main className="w-95 h-120 flex flex-col">
+      <div className="shrink-0">
+        <NavBar TwitchHandle={handleTwitchLogin} />
+      </div>
+      <div className="flex-1 overflow-y-auto">
+        <StreamCards streams={streams} />
+      </div>
     </main>
   );
 }
