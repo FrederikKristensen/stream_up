@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   // Twitch login handle
-  const handlelogin = async () => {
+  const handleTwitchLogin = async () => {
     try {
       const token = await twitchLogin();
       await saveToken(token);
@@ -53,13 +53,8 @@ function App() {
 
   return (
     <main className="w-95 h-80">
-      <NavBar />
+      <NavBar TwitchHandle={handleTwitchLogin} />
       <StreamCards streams={streams} />
-      <div className="absolute bottom-0">
-        <button onClick={handlelogin} className="text-white">
-          Login
-        </button>
-      </div>
     </main>
   );
 }
