@@ -13,9 +13,16 @@ interface StreamCardProps {
 }
 
 const StreamCard = ({ stream }: StreamCardProps) => {
+  const thumbnailLink = stream.thumbnail_url.replace('{width}', '200').replace('{height}', '180');
+
   return (
-    <a href={`https://www.twitch.tv/${stream.user_login}`}>
+    <a
+      href={`https://www.twitch.tv/${stream.user_login}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className="m-3 p-2 bg-zinc-700 rounded-xl">
+        <img src={thumbnailLink} alt="Thumbnail of the stream" />
         <h1 className="truncate text-gray-50">{stream.title}</h1>
         <h2 className="text-gray-200">
           {stream.user_name} - {stream.game_name}
