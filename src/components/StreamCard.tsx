@@ -21,7 +21,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="mx-3 my-2 p-2 bg-zinc-700 rounded-xl overflow-hidden">
+      <div className="mx-3 my-1.5 bg-zinc-700 rounded-xl overflow-hidden border-2 border-gray-700">
         <div className="relative">
           <img
             src={thumbnailLink}
@@ -29,13 +29,15 @@ const StreamCard = ({ stream }: StreamCardProps) => {
             className="w-full h-30 object-cover"
           />
         </div>
-        <h1 className="truncate text-gray-50">{stream.title}</h1>
-        <h2 className="text-gray-200">
-          {stream.user_name} - {stream.game_name}
-        </h2>
-        <div className="text-red-600 flex items-center gap-1">
-          <FaRegEye />
-          <p>{stream.viewer_count}</p>
+        <div className="pl-1.5 pb-0.5">
+          <h1 className="truncate text-gray-50 font-bold pt-0.5">{stream.title}</h1>
+          <h2 className="text-gray-200 font-semibold pb-1">
+            {stream.user_name} - {stream.game_name}
+          </h2>
+          <div className="text-red-600 flex items-center gap-1">
+            <FaRegEye />
+            <p>{stream.viewer_count}</p>
+          </div>
         </div>
       </div>
     </a>

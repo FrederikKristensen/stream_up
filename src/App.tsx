@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <main className="w-95 h-120 flex flex-col">
+    <main className="w-95 h-150 flex flex-col">
       <div className="shrink-0">
         <NavBar TwitchHandle={handleTwitchLogin} />
       </div>
