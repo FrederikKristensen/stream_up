@@ -1,15 +1,16 @@
-import { FaRegEye } from 'react-icons/fa';
-export interface channel {
+import { FaRegEye, FaTwitch } from 'react-icons/fa';
+export interface stream {
   user_login: string;
   user_name: string;
   title: string;
   game_name: string;
   viewer_count: number;
   thumbnail_url: string;
+  platform: 'twitch' | 'youtube';
 }
 
 interface StreamCardProps {
-  stream: channel;
+  stream: stream;
 }
 
 const StreamCard = ({ stream }: StreamCardProps) => {
@@ -39,6 +40,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
             <p>{stream.viewer_count}</p>
           </div>
         </div>
+        <div className="">{stream.platform === 'twitch' ? <FaTwitch /> : ''}</div>
       </div>
     </a>
   );

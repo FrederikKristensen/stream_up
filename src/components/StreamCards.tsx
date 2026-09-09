@@ -1,14 +1,14 @@
-import StreamCard, { type channel } from './StreamCard';
+import StreamCard, { type stream } from './StreamCard';
 
 interface StreamcardsProps {
-  streams: channel[];
+  streams: stream[];
 }
 
 const StreamCards = ({ streams }: StreamcardsProps) => {
   return (
     <div>
-      {streams.map((channel) => (
-        <StreamCard key={channel.user_name} stream={channel} />
+      {streams.map((stream) => (
+        <StreamCard key={stream.user_name} stream={stream} />
       ))}
     </div>
   );

@@ -5,11 +5,11 @@ import getUsersId from './api/twitch/twitchUser';
 import './App.css';
 import NavBar from './components/NavBar';
 import browser from 'webextension-polyfill';
-import { type channel } from './components/StreamCard';
+import { type stream } from './components/StreamCard';
 import StreamCards from './components/StreamCards';
 
 function App() {
-  const [streams, setStreams] = useState<channel[]>([]);
+  const [streams, setStreams] = useState<stream[]>([]);
 
   // Storing token in .storage.local
   async function saveToken(accessToken: string): Promise<void> {
