@@ -6,7 +6,7 @@ interface NavBarProps {
 
 const NavBar = ({ TwitchHandle }: NavBarProps) => {
   return (
-    <div className="m-1.5 mb-0.5 p-2 w-full bg-zinc-500 rounded-xl grid grid-cols-2">
+    <div className="m-1.5 mb-0 p-2 w-full bg-zinc-500 rounded-xl grid grid-cols-2">
       <div className="col-span-1">
         <button onClick={TwitchHandle} className="text-white">
           Twitch Login

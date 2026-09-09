@@ -56,7 +56,7 @@ function App() {
       <div className="shrink-0">
         <NavBar TwitchHandle={handleTwitchLogin} />
       </div>
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto scrollbar-thumb-gray-400 scrollbar-track-zinc-900">
         <StreamCards streams={streams} />
       </div>
     </main>
