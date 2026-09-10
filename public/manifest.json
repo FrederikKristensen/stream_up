@@ -8,6 +8,7 @@
   },
   "permissions": [
     "identity",
-    "storage"
+    "storage",
+    "tabs"
   ]
 }

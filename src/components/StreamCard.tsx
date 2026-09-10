@@ -1,5 +1,6 @@
 import { FaRegEye, FaTwitch } from 'react-icons/fa';
 import browser from 'webextension-polyfill';
+
 export interface stream {
   user_login: string;
   user_name: string;
@@ -14,6 +15,7 @@ interface StreamCardProps {
   stream: stream;
 }
 
+// Middle mouse click event handle
 const openAuxClick = (url: string, background: boolean) => {
   browser.tabs.create({ url, active: !background });
 };
