@@ -22,7 +22,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="mx-3 my-1.5 bg-zinc-700 rounded-xl overflow-hidden border-2 border-gray-700">
+      <div className="relative mx-3 my-1.5 bg-zinc-700 rounded-xl overflow-hidden border-2 border-gray-700">
         <div className="relative">
           <img
             src={thumbnailLink}
@@ -40,7 +40,9 @@ const StreamCard = ({ stream }: StreamCardProps) => {
             <p>{stream.viewer_count}</p>
           </div>
         </div>
-        <div className="">{stream.platform === 'twitch' ? <FaTwitch /> : ''}</div>
+        <div className="absolute top-2 right-2 p-1 bg-purple-500 rounded-sm">
+          {stream.platform === 'twitch' ? <FaTwitch className="size-3" /> : ''}
+        </div>
       </div>
     </a>
   );
