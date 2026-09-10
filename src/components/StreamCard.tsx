@@ -2,6 +2,7 @@ import { FaRegEye, FaTwitch } from 'react-icons/fa';
 import browser from 'webextension-polyfill';
 
 export interface stream {
+  user_id: string;
   user_login: string;
   user_name: string;
   title: string;
@@ -9,6 +10,7 @@ export interface stream {
   viewer_count: number;
   thumbnail_url: string;
   platform: 'twitch' | 'youtube';
+  profile_image_url: string;
 }
 
 interface StreamCardProps {
@@ -43,12 +45,19 @@ const StreamCard = ({ stream }: StreamCardProps) => {
         </div>
         <div className="pl-1.5 pb-0.5">
           <h1 className="truncate text-gray-50 font-bold pt-0.5">{stream.title}</h1>
-          <h2 className="text-gray-200 font-semibold pb-1">
-            {stream.user_name} - {stream.game_name}
-          </h2>
-          <div className="text-red-600 flex items-center gap-1">
-            <FaRegEye />
-            <p>{stream.viewer_count}</p>
+          <div className="pt-1 pb-0.8 grid grid-cols-7">
+            <img
+              src={stream.profile_image_url}
+              alt={`Profile picture of ${stream.user_name}`}
+              className="col-span-1 pl-1.5 h-7 rounded-full"
+            />
+            <h2 className="col-span-5 text-gray-200 font-semibold">
+              {stream.user_name} - {stream.game_name}
+            </h2>
+            <div className="col-span-1 relative right-0.5 text-red-600 flex items-center gap-1 font-semibold">
+              <p>{stream.viewer_count}</p>
+              <FaRegEye />
+            </div>
           </div>
         </div>
         <div className="absolute top-2 right-2 p-1 bg-purple-500 rounded-sm">
