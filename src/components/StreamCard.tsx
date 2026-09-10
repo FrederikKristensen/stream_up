@@ -43,7 +43,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
             className="w-full h-30 object-cover"
           />
         </div>
-        <div className="pl-1.5 pb-0.5">
+        <div className="px-1.5 pb-0.5">
           <h1 className="truncate text-gray-50 font-bold pt-1">{stream.title}</h1>
           <div className="flex items-center pb-0.8">
             <div className="flex items-center gap-1.5">
@@ -56,7 +56,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
                 {stream.user_name} - {stream.game_name}
               </h2>
             </div>
-            <div className="absolute right-1 text-red-600 flex items-center gap-1 font-semibold">
+            <div className="absolute right-1.5 text-red-600 flex items-center gap-1 font-semibold">
               <p>{stream.viewer_count}</p>
               <FaRegEye />
             </div>
