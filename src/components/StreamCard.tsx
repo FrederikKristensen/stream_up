@@ -44,17 +44,19 @@ const StreamCard = ({ stream }: StreamCardProps) => {
           />
         </div>
         <div className="pl-1.5 pb-0.5">
-          <h1 className="truncate text-gray-50 font-bold pt-0.5">{stream.title}</h1>
-          <div className="pt-1 pb-0.8 grid grid-cols-7">
-            <img
-              src={stream.profile_image_url}
-              alt={`Profile picture of ${stream.user_name}`}
-              className="col-span-1 pl-1.5 h-7 rounded-full"
-            />
-            <h2 className="col-span-5 text-gray-200 font-semibold">
-              {stream.user_name} - {stream.game_name}
-            </h2>
-            <div className="col-span-1 relative right-0.5 text-red-600 flex items-center gap-1 font-semibold">
+          <h1 className="truncate text-gray-50 font-bold pt-1">{stream.title}</h1>
+          <div className="flex items-center pb-0.8">
+            <div className="flex items-center gap-1.5">
+              <img
+                src={stream.profile_image_url}
+                alt={`Profile picture of ${stream.user_name}`}
+                className="h-7 rounded-full"
+              />
+              <h2 className=" text-gray-200 font-semibold">
+                {stream.user_name} - {stream.game_name}
+              </h2>
+            </div>
+            <div className="absolute right-1 text-red-600 flex items-center gap-1 font-semibold">
               <p>{stream.viewer_count}</p>
               <FaRegEye />
             </div>

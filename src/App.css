@@ -2,3 +2,7 @@
   width: 100%;
   min-height: 100vh;
 }
+
+body {
+  font-family: Inter, sans-serif;
+}
