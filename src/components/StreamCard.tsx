@@ -1,4 +1,5 @@
 import { FaRegEye, FaTwitch } from 'react-icons/fa';
+import browser from 'webextension-polyfill';
 export interface stream {
   user_login: string;
   user_name: string;
@@ -13,12 +14,20 @@ interface StreamCardProps {
   stream: stream;
 }
 
+const openAuxClick = (url: string, background: boolean) => {
+  browser.tabs.create({ url, active: !background });
+};
+
 const StreamCard = ({ stream }: StreamCardProps) => {
   const thumbnailLink = stream.thumbnail_url.replace('{width}', '320').replace('{height}', '180');
 
   return (
     <a
       href={`https://www.twitch.tv/${stream.user_login}`}
+      onAuxClick={(e) => {
+        e.preventDefault();
+        openAuxClick(`https://www.twitch.tv/${stream.user_login}`, true);
+      }}
       target="_blank"
       rel="noopener noreferrer"
     >
