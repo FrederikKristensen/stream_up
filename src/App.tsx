@@ -40,6 +40,11 @@ function App() {
     init();
   }, []);
 
+  //
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredStreams = streams.filter((stream) => stream.user_name.includes(searchQuery));
+
   // Twitch login handle
   const handleTwitchLogin = async () => {
     try {
@@ -54,10 +59,14 @@ function App() {
   return (
     <main className="w-95 h-150 flex flex-col">
       <div className="shrink-0">
-        <NavBar TwitchHandle={handleTwitchLogin} />
+        <NavBar
+          TwitchHandle={handleTwitchLogin}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+        />
       </div>
       <div className="flex-1 overflow-y-auto scrollbar-thumb-gray-400 scrollbar-track-zinc-900">
-        <StreamCards streams={streams} />
+        <StreamCards streams={filteredStreams} />
       </div>
     </main>
   );
