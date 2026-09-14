@@ -65,7 +65,7 @@ function App() {
           onSearchChange={setSearchQuery}
         />
       </div>
-      <div className="flex-1 overflow-y-auto scrollbar-thumb-gray-400 scrollbar-track-zinc-900">
+      <div className="flex-1 overflow-y-scroll scrollbar-thumb-gray-400 scrollbar-track-zinc-900">
         <StreamCards streams={filteredStreams} />
       </div>
     </main>
