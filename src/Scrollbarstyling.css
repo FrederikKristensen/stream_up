@@ -1,0 +1,29 @@
+
+/* For Firefox only */
+@-moz-document url-prefix() {
+  .streamlist {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+}
+
+/* For the rest */
+.streamlist::-webkit-scrollbar {
+  width: 6px;
+}
+.streamlist::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.streamlist::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.streamlist::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.30);
+}
+
+.streamlist::-webkit-scrollbar-button {
+  display: none;
+}

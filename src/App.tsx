@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import browser from 'webextension-polyfill';
 import { type stream } from './components/StreamCard';
 import StreamCards from './components/StreamCards';
+import './Scrollbarstyling.css';
 
 function App() {
   const [streams, setStreams] = useState<stream[]>([]);
@@ -65,7 +66,7 @@ function App() {
           onSearchChange={setSearchQuery}
         />
       </div>
-      <div className="flex-1 overflow-y-scroll scrollbar-thumb-gray-400 scrollbar-track-zinc-900">
+      <div className="flex-1 overflow-y-scroll streamlist">
         <StreamCards streams={filteredStreams} />
       </div>
     </main>
