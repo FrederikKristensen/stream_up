@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+
+@theme {
+  --color-ui-bg: var(--bg);
+  --color-navbar-bg: var(--navbar-bg);
+  --color-card-bg: var(--card-bg);
+  --color-card-title: var(--card-title);
+  --color-card-name: var(--card-name);
+}
+
 :root {
-  @apply bg-zinc-900;
+  --bg: var(--color-zinc-900);
+  --navbar-bg: var(--color-zinc-500);
+  --card-bg: var(--color-zinc-700);
+  --card-title: var(--color-gray-200);
+  --card-name: var(--color-gray-50);
 }
