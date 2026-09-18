@@ -1,4 +1,5 @@
-import { FaRegEye, FaTwitch } from 'react-icons/fa';
+import { FaTwitch } from 'react-icons/fa';
+import { IoPersonSharp } from 'react-icons/io5';
 import browser from 'webextension-polyfill';
 
 export interface stream {
@@ -56,9 +57,9 @@ const StreamCard = ({ stream }: StreamCardProps) => {
                 {stream.user_name} - {stream.game_name}
               </h2>
             </div>
-            <div className="ml-auto shrink-0 right-1.5 text-red-600 flex items-center gap-1 font-bold">
+            <div className="ml-auto mr-1.5 shrink-0 text-red-600 flex items-center gap-1 font-bold">
+              <IoPersonSharp className="size-3" />
               <p>{stream.viewer_count}</p>
-              <FaRegEye className="size-4" />
             </div>
           </div>
         </div>

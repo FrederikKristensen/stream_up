@@ -19,7 +19,7 @@ const NavBar = ({
   return (
     <nav>
       <div className="relative m-1.5 mb-0 p-2 bg-navbar-bg rounded-xl grid grid-cols-3 items-center">
-        <div className="flex items-center col-span-1 gap-2">
+        <div className="flex items-center col-span-1 gap-2 ml-1">
           <FaSearch color="white" className="shrink-0 size-4" />
           <input
             type="text"
@@ -29,7 +29,6 @@ const NavBar = ({
             className="text-white w-20 text-lg bg-transparent outline-none"
           />
         </div>
-
         <div className="col-span-1 flex gap-2">
           <button className="px-2 py-1" onClick={() => setTheme('dark')}>
             Dark
@@ -38,12 +37,12 @@ const NavBar = ({
             Light
           </button>
         </div>
-        <div className="col-span-1 col-end-4 absolute right-2">
+        <div className="col-span-1 col-end-4 absolute right-1.5">
           {currentUser ? (
             <img
               src={currentUser?.profile_image_url}
               alt="Logged in Users profile picture"
-              className="w-9 h-9 rounded-full"
+              className="w-8 h-8 rounded-full"
             />
           ) : (
             <button onClick={TwitchHandle} className="text-white">
