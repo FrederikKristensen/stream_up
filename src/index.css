@@ -11,7 +11,7 @@
 :root {
   --bg: var(--color-zinc-900);
   --navbar-bg: var(--color-zinc-500);
-  --card-bg: var(--color-zinc-700);
+  --card-bg: var(--color-zinc-600);
   --card-title: var(--color-gray-200);
   --card-name: var(--color-gray-50);
 }

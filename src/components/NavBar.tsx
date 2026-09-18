@@ -1,4 +1,3 @@
-import { IoMdSettings } from 'react-icons/io';
 import { FaSearch } from 'react-icons/fa';
 
 interface NavBarProps {
@@ -7,9 +6,16 @@ interface NavBarProps {
   onSearchChange: (value: string) => void;
   theme: string;
   setTheme: (value: string) => void;
+  currentUser: { profile_image_url: string } | undefined;
 }
 
-const NavBar = ({ TwitchHandle, searchQuery, onSearchChange, setTheme }: NavBarProps) => {
+const NavBar = ({
+  TwitchHandle,
+  searchQuery,
+  onSearchChange,
+  setTheme,
+  currentUser,
+}: NavBarProps) => {
   return (
     <nav>
       <div className="relative m-1.5 mb-0 p-2 bg-navbar-bg rounded-xl grid grid-cols-3 items-center">
@@ -23,11 +29,7 @@ const NavBar = ({ TwitchHandle, searchQuery, onSearchChange, setTheme }: NavBarP
             className="text-white w-20 text-lg bg-transparent outline-none"
           />
         </div>
-        <div className="col-span-1">
-          <button onClick={TwitchHandle} className="text-white">
-            Twitch Login
-          </button>
-        </div>
+
         <div className="col-span-1 flex gap-2">
           <button className="px-2 py-1" onClick={() => setTheme('dark')}>
             Dark
@@ -37,7 +39,17 @@ const NavBar = ({ TwitchHandle, searchQuery, onSearchChange, setTheme }: NavBarP
           </button>
         </div>
         <div className="col-span-1 col-end-4 absolute right-2">
-          <IoMdSettings size="1.5em" />
+          {currentUser ? (
+            <img
+              src={currentUser?.profile_image_url}
+              alt="Logged in Users profile picture"
+              className="w-9 h-9 rounded-full"
+            />
+          ) : (
+            <button onClick={TwitchHandle} className="text-white">
+              Connect Twitch
+            </button>
+          )}
         </div>
       </div>
     </nav>

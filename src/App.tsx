@@ -23,9 +23,15 @@ function App() {
     return result.twitchAccessToken as string | undefined;
   }
 
+  // Twitch profile picture
+  const [currentUser, setCurrentUser] = useState<{ profile_image_url: string } | undefined>(
+    undefined
+  );
+
   // Takes token and updates streams list
   const loadStreams = async (token: string) => {
     const user = await getUsersId(token);
+    setCurrentUser(user);
     const followed = await getTwitchFollow(token, user.id);
     setStreams(followed);
   };
@@ -73,6 +79,7 @@ function App() {
           onSearchChange={setSearchQuery}
           theme={theme}
           setTheme={setTheme}
+          currentUser={currentUser}
         />
       </div>
       <div className="flex-1 overflow-y-scroll streamlist">

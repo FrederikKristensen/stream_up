@@ -35,7 +35,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="relative mx-3 my-1.5 bg-card-bg rounded-xl overflow-hidden border-2 border-gray-700">
+      <div className="relative mx-3 my-1.5 bg-card-bg rounded-xl overflow-hidden border-2">
         <div className="relative">
           <img
             src={thumbnailLink}
@@ -58,7 +58,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
             </div>
             <div className="ml-auto shrink-0 right-1.5 text-red-600 flex items-center gap-1 font-bold">
               <p>{stream.viewer_count}</p>
-              <FaRegEye />
+              <FaRegEye className="size-4" />
             </div>
           </div>
         </div>
