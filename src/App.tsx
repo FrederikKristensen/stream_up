@@ -57,6 +57,13 @@ function App() {
     }
   };
 
+  // themes
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   return (
     <main className="w-95 h-150 flex flex-col bg-ui-bg">
       <div className="shrink-0">
@@ -64,6 +71,8 @@ function App() {
           TwitchHandle={handleTwitchLogin}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
+          theme={theme}
+          setTheme={setTheme}
         />
       </div>
       <div className="flex-1 overflow-y-scroll streamlist">

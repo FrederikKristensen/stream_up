@@ -5,9 +5,11 @@ interface NavBarProps {
   TwitchHandle: () => void;
   searchQuery: string;
   onSearchChange: (value: string) => void;
+  theme: string;
+  setTheme: (value: string) => void;
 }
 
-const NavBar = ({ TwitchHandle, searchQuery, onSearchChange }: NavBarProps) => {
+const NavBar = ({ TwitchHandle, searchQuery, onSearchChange, setTheme }: NavBarProps) => {
   return (
     <nav>
       <div className="relative m-1.5 mb-0 p-2 bg-navbar-bg rounded-xl grid grid-cols-3 items-center">
@@ -26,9 +28,13 @@ const NavBar = ({ TwitchHandle, searchQuery, onSearchChange }: NavBarProps) => {
             Twitch Login
           </button>
         </div>
-        <div className="col-span-1">
-          <button>Light</button>
-          <button>Dark</button>
+        <div className="col-span-1 flex gap-2">
+          <button className="px-2 py-1" onClick={() => setTheme('dark')}>
+            Dark
+          </button>
+          <button className="px-2 py-1" onClick={() => setTheme('light')}>
+            Light
+          </button>
         </div>
         <div className="col-span-1 col-end-4 absolute right-2">
           <IoMdSettings size="1.5em" />
