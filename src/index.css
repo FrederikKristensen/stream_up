@@ -14,6 +14,7 @@
   --card-bg: var(--color-zinc-600);
   --card-title: var(--color-gray-200);
   --card-name: var(--color-gray-50);
+  --scrollbar-thumb: rgba(206, 0, 0, 0.4);
 }
 
 [data-theme="light"] {
@@ -22,4 +23,5 @@
   --card-bg: var(--color-gray-400);
   --card-title: var(--color-neutral-800);
   --card-name: var(--color-neutral-900);
+  --scrollbar-thumb: rgba(206, 0, 0, 0.7);
 }
