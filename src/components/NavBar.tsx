@@ -1,4 +1,5 @@
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaMoon } from 'react-icons/fa';
+import { RiSunFill } from 'react-icons/ri';
 
 interface NavBarProps {
   TwitchHandle: () => void;
@@ -14,6 +15,7 @@ const NavBar = ({
   searchQuery,
   onSearchChange,
   setTheme,
+  theme,
   currentUser,
 }: NavBarProps) => {
   return (
@@ -29,15 +31,17 @@ const NavBar = ({
             className="text-white w-20 text-lg bg-transparent outline-none"
           />
         </div>
-        <div className="col-span-1 flex gap-2">
-          <button className="px-2 py-1" onClick={() => setTheme('dark')}>
-            Dark
+        <div className="col-span-2 flex justify-end gap-2">
+          <button
+            className="p-2 bg-card-bg flex items-center justify-center rounded-full"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          >
+            {theme === 'dark' ? (
+              <FaMoon className="text-sm text-white" />
+            ) : (
+              <RiSunFill className="text-sm text-black" />
+            )}
           </button>
-          <button className="px-2 py-1" onClick={() => setTheme('light')}>
-            Light
-          </button>
-        </div>
-        <div className="col-span-1 col-end-4 absolute right-1.5">
           {currentUser ? (
             <img
               src={currentUser?.profile_image_url}

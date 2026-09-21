@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import browser from 'webextension-polyfill';
 import { type stream } from './components/StreamCard';
 import StreamCards from './components/StreamCards';
-import './Scrollbarstyling.css';
+import './css/Scrollbarstyling.css';
 
 function App() {
   const [streams, setStreams] = useState<stream[]>([]);
