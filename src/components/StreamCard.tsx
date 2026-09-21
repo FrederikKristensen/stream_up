@@ -36,7 +36,7 @@ const StreamCard = ({ stream }: StreamCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="relative mx-3 my-1.5 bg-card-bg rounded-xl overflow-hidden border-2">
+      <div className="relative mx-2 my-2 bg-card-bg rounded-xl overflow-hidden">
         <div className="relative">
           <img
             src={thumbnailLink}

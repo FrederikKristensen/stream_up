@@ -17,5 +17,9 @@
 }
 
 [data-theme="light"] {
-  --bg: var(--color-white);
+  --bg: var(--color-gray-200);
+  --navbar-bg: var(--color-gray-500);
+  --card-bg: var(--color-gray-400);
+  --card-title: var(--color-neutral-800);
+  --card-name: var(--color-neutral-900);
 }
