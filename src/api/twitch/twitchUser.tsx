@@ -1,4 +1,4 @@
-const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
+export const Twitch_Client_ID = '7vg5ggl5wh7qmzudpa4z4s8tdq4pby';
 
 interface TwitchUser {
   id: string;

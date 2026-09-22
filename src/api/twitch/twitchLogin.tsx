@@ -1,7 +1,5 @@
 import browser from 'webextension-polyfill';
-
-// Our application id for twitch
-const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
+import { Twitch_Client_ID } from './twitchUser';
 
 // Here we get a redirection link for our web extension that is made by chrome
 function getTwitchRedirectURL(): string {

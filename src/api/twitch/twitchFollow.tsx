@@ -1,6 +1,5 @@
 import type { stream } from '../../components/StreamCard';
-
-const Twitch_Client_ID = import.meta.env.VITE_TWITCH_CLIENT_ID as string;
+import { Twitch_Client_ID } from './twitchUser';
 interface followedStreams {
   data: stream[];
 }
