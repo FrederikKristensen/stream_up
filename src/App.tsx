@@ -30,10 +30,20 @@ function App() {
 
   // Takes token and updates streams list
   const loadStreams = async (token: string) => {
-    const user = await getUsersId(token);
-    setCurrentUser(user);
-    const followed = await getTwitchFollow(token, user.id);
-    setStreams(followed);
+    try {
+      const user = await getUsersId(token);
+      setCurrentUser(user);
+      const followed = await getTwitchFollow(token, user.id);
+      setStreams(followed);
+    } catch (error) {
+      if (error instanceof Error && error.message === `Invalid token`) {
+        await browser.storage.local.remove(`twitchAccessToken`);
+        setCurrentUser(undefined);
+        setStreams([]);
+      } else {
+        console.error(`Unexpected error: ${error}`);
+      }
+    }
   };
 
   // Runs loadStreams if we have a stored token when we open

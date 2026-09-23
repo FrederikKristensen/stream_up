@@ -21,6 +21,10 @@ async function getTwitchFollow(accessToken: string, userId: string): Promise<str
     },
   });
 
+  if (response.status === 401) {
+    throw new Error(`Invalid token`);
+  }
+
   if (!response.ok) {
     throw new Error(`Twitch API error: ${response.status} ${response.statusText}`);
   }
